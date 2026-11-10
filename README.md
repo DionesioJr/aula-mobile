@@ -29,7 +29,16 @@ usando-react-navigation/          projeto React Native, navegação com React Na
   aula/...                        idem
 editando-tarefas/                 projeto React Native, CRUD de tarefas sobre as rotas
   aula/...                        idem
+notificacoes-push/                mini app de push + servidor Node da turma
+  aula/...                        idem
+usando-camera/                    React Native + expo-camera, tirar e mostrar uma foto
+  aula/...                        idem
+usando-geolocalizacao/            React Native + react-native-maps + expo-location, mapas e GPS
+  aula/...                        idem
 ```
+
+As aulas de lógica de programação (TypeScript, JavaScript e DOM) ficam no
+repositório de Coding (`Aulas/Coding/coding`), não aqui.
 
 Cada pasta de aula também tem o projeto Expo usado em aula (`App.tsx`,
 `src/screens/`, `package.json`), isso é o código que os alunos acompanham
