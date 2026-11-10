@@ -6,3 +6,6 @@ web-build/
 .vercel/
 *.log
 .DS_Store
+
+# Chave da conta de serviço do Firebase (credencial de envio de push)
+*firebase-adminsdk*.json

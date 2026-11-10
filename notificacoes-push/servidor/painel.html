@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Painel de push da turma</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 32px auto; padding: 0 16px; color: #20242a; }
+  input, textarea, button { width: 100%; font: inherit; padding: 10px; margin-bottom: 10px; box-sizing: border-box; }
+  button { background: #2e6de6; color: #fff; border: 0; border-radius: 8px; font-weight: bold; cursor: pointer; }
+  li { font-size: 13px; margin-bottom: 4px; word-break: break-all; }
+  pre { background: #f2f4f8; padding: 12px; border-radius: 8px; white-space: pre-wrap; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h1>Painel de push da turma</h1>
+
+  <h2>Aparelhos cadastrados (<span id="total">0</span>)</h2>
+  <ul id="aparelhos"></ul>
+
+  <h2>Enviar para todos</h2>
+  <input id="titulo" placeholder="Título" value="Aula de Mobile" />
+  <textarea id="corpo" rows="3" placeholder="Mensagem">Feche o app e espere por mim!</textarea>
+  <button id="enviar">Enviar push</button>
+
+  <h2>Resposta do serviço de push</h2>
+  <pre id="resultado">nada enviado ainda</pre>
+
+<script>
+  async function atualizar() {
+    const lista = await (await fetch('/tokens')).json();
+    document.getElementById('total').textContent = lista.length;
+    document.getElementById('aparelhos').innerHTML = lista
+      .map(function (item) { return '<li><b>' + item.aparelho + '</b><br>' + item.token + '</li>'; })
+      .join('');
+  }
+
+  document.getElementById('enviar').onclick = async function () {
+    const resposta = await fetch('/enviar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        titulo: document.getElementById('titulo').value,
+        corpo: document.getElementById('corpo').value,
+      }),
+    });
+    document.getElementById('resultado').textContent = JSON.stringify(await resposta.json(), null, 2);
+    atualizar();
+  };
+
+  atualizar();
+  setInterval(atualizar, 3000);
+</script>
+</body>
+</html>

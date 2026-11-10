@@ -1,0 +1,25 @@
+{
+  "name": "notificacoes-push",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "check-aula": "node aula/tools/check-sync.js",
+    "servidor": "node servidor/servidor.js"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~6.1.2",
+    "expo": "~54.0.0",
+    "expo-constants": "~18.0.9",
+    "expo-device": "~8.0.9",
+    "expo-notifications": "~0.32.12",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-web": "~0.21.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.0",
+    "typescript": "~5.9.2"
+  },
+  "private": true
+}

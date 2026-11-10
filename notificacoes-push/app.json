@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Notificações Push",
+    "slug": "notificacoes-push",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "android": {
+      "package": "com.aulasmobile.notificacoespush"
+    },
+    "ios": {
+      "bundleIdentifier": "com.aulasmobile.notificacoespush"
+    },
+    "plugins": ["expo-notifications"]
+  }
+}
